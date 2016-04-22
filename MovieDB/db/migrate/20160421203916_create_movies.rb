@@ -4,6 +4,7 @@ class CreateMovies < ActiveRecord::Migration[5.0]
       t.string :picture
       t.string :description
       t.string :title
+      t.string :friendly_url
       t.timestamps
     end
   end
