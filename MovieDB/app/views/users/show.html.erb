@@ -1,4 +1,7 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
+<h2><%= @user.username %></h2>
+<img src="<%= @user.picture %>" alt="Picture of <%= @user.username %>"/>
+<br>
+<%= link_to 'Edit', edit_user_path(@user) %>
 <%= link_to 'Back', users_path %>

@@ -1,8 +1,13 @@
 <p id="notice"><%= notice %></p>
-<div>
-<h1><%= movie.title %></h1>
-<p><%= movie.description %></p> 
-</div>
-
+<div class="row">
+  <div class="col-md-8 col-md-offset-2"> 
+    <div>
+      <h1><%= @movie.title %></h1>
+      <img src="<%= @movie.picture %>" alt="Picture of <%= @movie.title %>" class="show_movie_img">
+      <p><%= @movie.description %></p> 
+    </div>
 <%= link_to 'Edit', edit_movie_path(@movie) %> |
 <%= link_to 'Back', movies_path %>
+  </div>
+</div>
+

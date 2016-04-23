@@ -11,16 +11,16 @@
 Movie.create([
   {title:"Zootopia", picture:"https://upload.wikimedia.org/wikipedia/en/d/d6/Zootopia_Soundtrack.jpg", description:"In a city of anthropomorphic animals, a rookie bunny cop and a cynical con artist fox must work together to uncover a conspiracy.", friendly_url: "zootopia"},
   {title:"Iron Man", picture:"http://covers.box.sk/newsimg/dvdmov/max1355375016-inlay-cover.jpg", description:"After being held captive in an Afghan cave, a billionaire engineer creates a unique weaponized suit of armor to fight evil.", friendly_url:"iron_man"},
-  {title:"Star Wars: Episode VII - The Force Awakens", picture:"", description:"", friendly_url:"star_wars_episode_vii_the_force-awakens"}
+  {title:"Star Wars: Episode VII - The Force Awakens", picture:"http://ia.media-imdb.com/images/M/MV5BOTAzODEzNDAzMl5BMl5BanBnXkFtZTgwMDU1MTgzNzE@._V1_SX640_SY720_.jpg", description:"Three decades after the defeat of the Galactic Empire, a new threat arises. The First Order attempts to rule the galaxy and only a ragtag group of heroes can stop them, along with the help of the Resistance.", friendly_url:"star_wars_episode_vii_the_force-awakens"}
   ])  
 
 # to add more users
-# {username: "", password: "", email: "", is_admin: false },
+# {username: "", password: "",  email: "",  picture: "", is_admin: false },
 User.create([
-  {username: "Phil", password: "password", email: "a@gmail.com", is_admin: false },
-  {username: "John", password: "password", email: "test@gmail.com", is_admin: false },
-  {username: "Sir Robert Testingson the Third Esqire", password: "password", email: "pippipcheeriohuzzzah@veryverylongname.com", is_admin: false },
-  {username: "Adminy", password: "passwordy", email: "test@test.com", is_admin: true }
+  {username: "Phil", password: "password", email: "a@gmail.com", picture: "", is_admin: false },
+  {username: "John", password: "password", email: "test@gmail.com", picture: "", is_admin: false },
+  {username: "Sir Robert Testingson the Third Esqire", password: "password", email: "pippipcheeriohuzzzah@veryverylongname.com", picture: "http://www.nndb.com/people/496/000098202/sir-john-tenniel-1-sized.jpg", is_admin: false },
+  {username: "Adminy", password: "passwordy", email: "test@test.com", picture: "http://www.returnofkings.com/wp-content/uploads/2014/03/ban.jpg", is_admin: true }
   ])
 
 # to add more reviews
