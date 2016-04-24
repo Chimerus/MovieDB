@@ -10,7 +10,17 @@
   </head>
 
   <body>
-  <div></div>
+  <div>
+  <!-- Sign in or Sign up, if already logged in, welcomes user -->
+    <% if current_user %>
+      <%= "Welcome "+ user.username +" !"%>
+      <a id="logout" href="/logout">Logout</a>
+    <% else %>
+      <%= "You must be signed in to post reviews!"%>
+      <a id="new" href="/new">Sign Up Free!</a> |
+      <a id="login" href="/login">Sign In</a>
+    <% end %>
+  </div>
   <div id="main-container" class="container">
     <%= yield %>
   </div>
