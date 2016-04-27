@@ -9,7 +9,24 @@ class ApplicationController < ActionController::Base
     end
 
     def logged_in?
-       current_user != nil
+      current_user != nil
+    end
+
+    def login
+      user = User.where(email: params[:email]).first
+      if user && user.authenticate(params[:password])
+        cookies[:auth_token] = user.auth_token
+        redirect_to :back
+      else
+        flash.now[:error] = "Invalid email or password"
+        redirect_to '/'
+      end
+    end
+
+    # clear session
+    def logout
+      cookies.delete(:auth_token)
+      redirect_to '/'
     end
 
 end

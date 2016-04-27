@@ -13,16 +13,48 @@
   <div>
   <!-- Sign in or Sign up, if already logged in, welcomes user -->
     <% if current_user %>
-      <%= "Welcome "+ user.username +" !"%>
+      <h4>Hi <%= current_user.username %> it's showtime!</h4>
       <a id="logout" href="/logout">Logout</a>
+        <% if current_user.is_admin %>
+          <h4>Yep, Admin!</h4>
+        <% end %>
     <% else %>
       <%= "You must be signed in to post reviews!"%>
-      <a id="new" href="/new">Sign Up Free!</a> |
-      <a id="login" href="/login">Sign In</a>
+      <a id="new" href="/users/new">Sign Up Free!</a> |
+      <a href="#" class="nav-link" data-toggle="modal" data-target="#signIn" >Sign In</a>
     <% end %>
+    <!-- For system messages -->
+    <% flash.each do |name, msg| -%>
+      <%= content_tag :div, msg, class: name %>
+    <% end -%>
   </div>
+  <!-- Each View goes under here -->
   <div id="main-container" class="container">
     <%= yield %>
   </div>
+  <!-- Login Modal, outside main container -->
+  <div class="modal fade" id="signIn" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title" id="myModalLabel">Sign-In</h4>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <%= bootstrap_form_tag url: '/login', :html => {:autocomplete => "off"} do |f| %>
+              <%= f.text_field :email, placeholder: 'Email', hide_label: true, autofill: false %>
+              <%= f.password_field :password, placeholder: 'Password', hide_label: true, class: 'form-control'%>
+              <div class="modal-footer">
+                <%= submit_tag "Submit", class: 'btn btn-warning' %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>  
+
+
   </body>
 </html>
