@@ -1,3 +1,4 @@
+<!-- original listing of movie -->
 <table>
   <thead>
     <tr>
@@ -17,3 +18,18 @@
     <% end %>
   </tbody>
 </table>
+
+<!-- original show link -->
+<div><%= link_to 'Show', movie %></div>
+
+<!-- original notice, went in each view, moved it to application -->
+<p id="notice"><%= notice %></p>
+
+<!-- admin lock -->
+<% if current_user && current_user.is_admin %>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2"> 
+      <!-- code for admins goes here -->
+    </div>
+  </div>
+<% end %>

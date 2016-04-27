@@ -15,8 +15,11 @@
     <% if current_user %>
       <h4>Hi <%= current_user.username %> it's showtime!</h4>
       <a id="logout" href="/logout">Logout</a>
+      <!-- admin add new movie link -->
         <% if current_user.is_admin %>
-          <h4>Yep, Admin!</h4>
+          <h4>Administrator: <%= link_to 'New Movie', new_movie_path %> </h4>
+        <% else %>
+          <h3>Not Admin</h3>
         <% end %>
     <% else %>
       <%= "You must be signed in to post reviews!"%>

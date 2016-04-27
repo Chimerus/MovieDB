@@ -1,13 +1,34 @@
-<p id="notice"><%= notice %></p>
 <div class="row">
   <div class="col-md-8 col-md-offset-2"> 
     <div>
       <h1><%= @movie.title %></h1>
       <img src="<%= @movie.picture %>" alt="Picture of <%= @movie.title %>" class="show_movie_img">
-      <p><%= @movie.description %></p> 
+      <p><%= @movie.description %></p>
+      <!-- if no reviews, encourage review -->
+      <% if @movie.reviews.empty? %>
+        <p>Be the first to review this movie!</p>
+      <% else %>
+        <div>
+          <% @movie.reviews.each do |review| %>
+          <div>
+            <p><%= review.user.username %> rates this a: <strong><%= review.score %>/5</strong></p>
+            <p><%= review.comment %></p>   
+          </div>
+          <% end %>
+        </div>
+      <% end %>
+      <% if current_user %>
+        <a class="btn btn-info review_button" role="button">Review this Movie!</a>
+      <% else %>
+      <p><a href="/users/new" title="sign_up_link">Sign Up</a> to review!</p>
+      <% end %>
     </div>
-<%= link_to 'Edit', edit_movie_path(@movie) %> |
-<%= link_to 'Back', movies_path %>
+    <div class="review_form" style="display:none">
+      test this will show
+    </div>
+    <% if current_user && current_user.is_admin %>
+      <%= link_to 'Edit', edit_movie_path(@movie) %> | <%= link_to 'Destroy', @movie, method: :delete, data: { confirm: 'Are you sure?' } %> |
+    <% end %>
+    <%= link_to 'Back', movies_path %>
   </div>
-</div>
-
+</div>              

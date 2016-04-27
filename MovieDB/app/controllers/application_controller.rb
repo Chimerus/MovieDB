@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
         cookies[:auth_token] = user.auth_token
         redirect_to :back
       else
-        flash.now[:error] = "Invalid email or password"
+        flash[:error] = "Invalid email or password"
         redirect_to '/'
       end
     end
