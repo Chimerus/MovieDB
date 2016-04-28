@@ -42,6 +42,6 @@ Review.create([
   {score: 5, comment: "Truly, a cinematic masterpiece!", user_id: 3, movie_id: 4},
   {score: 5, comment: "IMDB can't be wrong!", user_id: 1, movie_id: 6},
   {score: 5, comment: "Inspiring!", user_id: 2 , movie_id: 6},
-  {score: 5, comment: "Made me want to go to prison!", user_id: 4, movie_id: 6}
-  {score: 5, comment: "This is an automated test", user_id: 5, movie_id: 6},
+  {score: 5, comment: "Made me want to go to prison!", user_id: 4, movie_id: 6},
+  {score: 5, comment: "This is an automated test", user_id: 5, movie_id: 6}
   ])
