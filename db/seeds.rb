@@ -23,7 +23,7 @@ User.create([
   {username: "Phil", password: "password", email: "a@gmail.com", picture: "", is_admin: false },
   {username: "John", password: "password", email: "test@gmail.com", picture: "", is_admin: false },
   {username: "Sir Robert Testingson the Third Esqire", password: "password", email: "pippipcheeriohuzzzah@veryverylongname.com", picture: "http://www.nndb.com/people/496/000098202/sir-john-tenniel-1-sized.jpg", is_admin: false },
-  {username: "Adminy", password: "passwordy", email: "test@test.com", picture: "http://www.returnofkings.com/wp-content/uploads/2014/03/ban.jpg", is_admin: true }
+  {username: "Adminy", password: "passwordy", email: "test@test.com", picture: "http://www.returnofkings.com/wp-content/uploads/2014/03/ban.jpg", is_admin: true },
   {username: "Test", password: "test",  email: "1@1.com",  picture: "", is_admin: false }
   ])
 
