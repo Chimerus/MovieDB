@@ -11,6 +11,10 @@ Rails.application.routes.draw do
   get '/logout' => 'application#logout'
 
   get '/review/new/:id' => 'reviews#new'
+
+  # if they refresh the search page, sends back to home
+  get '/movie/search' => 'movies#index'
+  post '/movie/search' => 'movies#search'
   # Serve websocket cable requests in-process
   # mount ActionCable.server => '/cable'
 end

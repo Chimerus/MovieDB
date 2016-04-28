@@ -37,7 +37,7 @@ Review.create([
   {score: 1, comment: "Sucked!", user_id: 1, movie_id: 2},
   {score: 3, comment: "Derivative", user_id: 4, movie_id: 5},
   {score: 3, comment: "Adequate!", user_id: 3, movie_id: 2},
-  {score: 5, comment: "Cool!", user_id: 3, movie_id: 4},
+  {score: 5, comment: "Cool!", user_id: 4, movie_id: 4},
   {score: 4, comment: "Good!", user_id: 4, movie_id: 2},
   {score: 5, comment: "Truly, a cinematic masterpiece!", user_id: 3, movie_id: 4},
   {score: 5, comment: "IMDB can't be wrong!", user_id: 1, movie_id: 6},

@@ -4,8 +4,21 @@ class MoviesController < ApplicationController
 
   # GET /movies
   # GET /movies.json
+
+  # using @ page, so can recycle the index page for both index and search results
   def index
     @movies = Movie.all
+    @page = "Welcome to YetAnotherMovieReviewSite!"
+  end
+
+  def search
+    # regex and using params for safety
+    @movies = Movie.where('title~*?', params[:search])
+    @page = "Search Results"
+    if @movies.empty?
+      @sorry = "No results found"
+    end
+    render :index
   end
 
   # GET /movies/1

@@ -27,12 +27,15 @@
   <% end %>
   <!-- Search bar -->
   <div class="input-group col-md-3">
-    <input type="text" class="  search-query form-control" placeholder="Search" />
+  <form action="/movie/search" id="new_search" method="post">
+    <%= tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token) %>
+    <input type="text" class="search-query form-control" placeholder="Search by Title" name="search"/>
       <span class="input-group-btn">
-        <button class="btn btn-danger" type="button">
+        <button class="btn btn-danger" type="submit button">
           <span class=" glyphicon glyphicon-search"></span>
         </button>
       </span>
+    </form>
   </div>
     <!-- For system messages -->
     <% flash.each do |name, msg| -%>
