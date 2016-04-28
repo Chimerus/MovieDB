@@ -15,6 +15,7 @@ class ReviewsController < ApplicationController
   # GET /reviews/new
   def new
     @review = Review.new
+    @movie = Movie.find(params[:id])
   end
 
   # GET /reviews/1/edit
@@ -24,15 +25,22 @@ class ReviewsController < ApplicationController
   # POST /reviews
   # POST /reviews.json
   def create
-    @review = Review.new(review_params)
+    # check if THIS user reviewed THIS movie
+    if Review.find_by(user_id: review_params[:user_id], movie_id: review_params[:movie_id])
+      flash[:error] = "You have already reviewed this movie!"
+      redirect_to '/'
+    else
+      @review = Review.new(review_params)
+      @movie = Movie.find(review_params[:movie_id])
 
-    respond_to do |format|
-      if @review.save
-        format.html { redirect_to @review, notice: 'Review was successfully created.' }
-        format.json { render :show, status: :created, location: @review }
-      else
-        format.html { render :new }
-        format.json { render json: @review.errors, status: :unprocessable_entity }
+      respond_to do |format|
+        if @review.save
+          format.html { redirect_to '/', notice: 'Review was successfully created.' }
+          format.json { render :show, status: :created, location: @review }
+        else
+          format.html { render :new }
+          format.json { render json: @review.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
@@ -64,11 +72,11 @@ class ReviewsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_review
-      @review = Review.find(params[:id])
+      @review = Review.find(params[:movie_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def review_params
-      params.require(:review).permit(:score, :comment)
+      params.require(:review).permit(:score, :comment, :user_id, :movie_id)
     end
 end

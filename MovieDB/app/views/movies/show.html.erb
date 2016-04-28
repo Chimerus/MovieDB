@@ -18,13 +18,11 @@
         </div>
       <% end %>
       <% if current_user %>
-        <a class="btn btn-info review_button" role="button">Review this Movie!</a>
+      <!-- TODO maybe show hidden div with form -->
+        <a href="/review/new/<%= @movie.id %>" class="btn btn-info review_button" role="button">Review this Movie!</a>
       <% else %>
       <p><a href="/users/new" title="sign_up_link">Sign Up</a> to review!</p>
       <% end %>
-    </div>
-    <div class="review_form" style="display:none">
-      test this will show
     </div>
     <% if current_user && current_user.is_admin %>
       <%= link_to 'Edit', edit_movie_path(@movie) %> | <%= link_to 'Destroy', @movie, method: :delete, data: { confirm: 'Are you sure?' } %> |

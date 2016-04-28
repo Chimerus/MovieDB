@@ -33,3 +33,18 @@
     </div>
   </div>
 <% end %>
+<!-- under route, tried to get friendly_url working -->
+ resources :movies, :except => 'show'
+
+<!-- form? -->
+<div class="review_form" style="display:none">
+      <%= bootstrap_form_for (@review, url: '/reviews/new') do |f| %>
+
+        <%= f.text_field :score, placeholder: 'Email', hide_label: true, autofill: false %>
+        <%= f.password_field :password, placeholder: 'Password', hide_label: true, class: 'form-control'%>
+        <!-- hidden fields for  -->
+        <%= f.text_field :user_id,  value: current_user.id, type: hidden %>
+        <%= f.text_field :movie_id,  value: @movie.id, type: hidden %>
+        <%= submit_tag "Submit", class: 'btn btn-warning' %>
+      <% end %>
+    </div>

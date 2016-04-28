@@ -1,5 +1,45 @@
-<h1>New Review</h1>
+<div class="row">
+  <div class="col-md-8 col-md-offset-2"> 
+    <h1><%= @movie.title %> Review</h1>
+    <%= form_for(@review) do |f| %>
+      <% if @review.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(review.errors.count, "error") %> prohibited this review from being saved:</h2>
 
-<%= render 'form', review: @review %>
+          <ul>
+          <% @review.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
 
-<%= link_to 'Back', reviews_path %>
+      <div class="field">
+        <%= f.label :score %><br>
+          <%= f.label :score, "1"  %>
+          <%= f.radio_button :score, 1 %>
+          <%= f.label :score, "2"  %>
+          <%= f.radio_button :score, 2 %>
+          <%= f.label :score, "3"  %>
+          <%= f.radio_button :score, 3 %>
+          <%= f.label :score, "4"  %>
+          <%= f.radio_button :score, 4 %>
+          <%= f.label :score, "5"  %>
+          <%= f.radio_button :score, 5 %>
+      </div>  
+      <div class="field">
+        <%= f.label :comment %><br>
+        <%= f.text_field :comment  %>
+      </div>
+      <div class="field" hidden>
+        <%= f.text_field :user_id, value: current_user.id %>
+      </div>  
+      <div class="field" hidden>
+        <%= f.text_field :movie_id, value: @movie.id %>
+      </div>
+      <div class="actions">
+        <%= f.submit %>
+      </div>
+    <% end %>
+  </div>
+</div>
