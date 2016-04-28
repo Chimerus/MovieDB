@@ -3,6 +3,7 @@
     <div>
       <h1><%= @movie.title %></h1>
       <img src="<%= @movie.picture %>" alt="Picture of <%= @movie.title %>" class="show_movie_img">
+      <p>User Average Review: <%= @movie.reviews.average(:score).to_s.slice(0..2) %>/5</p>
       <p><%= @movie.description %></p>
       <!-- if no reviews, encourage review -->
       <% if @movie.reviews.empty? %>

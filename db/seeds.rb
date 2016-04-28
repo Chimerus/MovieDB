@@ -10,8 +10,9 @@
 # {title:"", picture:"", description:"", friendly_url:""},
 Movie.create([
   {title:"Zootopia", picture:"https://upload.wikimedia.org/wikipedia/en/d/d6/Zootopia_Soundtrack.jpg", description:"In a city of anthropomorphic animals, a rookie bunny cop and a cynical con artist fox must work together to uncover a conspiracy.", friendly_url: "zootopia"},
-  {title:"Iron Man", picture:"http://covers.box.sk/newsimg/dvdmov/max1355375016-inlay-cover.jpg", description:"After being held captive in an Afghan cave, a billionaire engineer creates a unique weaponized suit of armor to fight evil.", friendly_url:"iron_man"},
-  {title:"Star Wars: Episode VII - The Force Awakens", picture:"http://ia.media-imdb.com/images/M/MV5BOTAzODEzNDAzMl5BMl5BanBnXkFtZTgwMDU1MTgzNzE@._V1_SX640_SY720_.jpg", description:"Three decades after the defeat of the Galactic Empire, a new threat arises. The First Order attempts to rule the galaxy and only a ragtag group of heroes can stop them, along with the help of the Resistance.", friendly_url:"star_wars_episode_vii_the_force-awakens"}
+  {title:"Iron Man", picture:"http://www.dvdactive.com/images/news/screenshot/2008/8/ironman1discr1artpic1.jpg", description:"After being held captive in an Afghan cave, a billionaire engineer creates a unique weaponized suit of armor to fight evil.", friendly_url:"iron_man"},
+  {title:"Mad Max: Fury Road", picture:"http://cdn1-www.superherohype.com/assets/uploads/gallery/mad-max-fury-road_1/mad-max-fury-road-poster2.jpg", description:"A woman rebels against a tyrannical ruler in postapocalyptic Australia in search for her home-land with the help of a group of female prisoners, a psychotic worshipper, and a drifter named Max.", friendly_url:"mad_max_fury_road"},
+  {title:"Star Wars: Episode VII - The Force Awakens", picture:"http://d.fastcompany.net/multisite_files/fastcompany/imagecache/inline-large/inline/2015/10/3052458-inline-i-1-celebrate-the-poster.jpg", description:"Three decades after the defeat of the Galactic Empire, a new threat arises. The First Order attempts to rule the galaxy and only a ragtag group of heroes can stop them, along with the help of the Resistance.", friendly_url:"star_wars_episode_vii_the_force-awakens"}
   ])  
 
 # to add more users
