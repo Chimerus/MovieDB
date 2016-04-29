@@ -1,24 +1,25 @@
 <div class="row">
   <div class="col-md-8 col-md-offset-2"> 
     <div>
-      <h1><%= @movie.title %></h1>
+      <h1 class="movie_title"><%= @movie.title %></h1>
       <img src="<%= @movie.picture %>" alt="Picture of <%= @movie.title %>" class="show_movie_img">
       <!-- only show average if there are user review scores -->
       <% if @movie.reviews.average(:score) %>
         <!-- average review, cut off at one decimal -->
-        <p><strong>User Average Review: <%= @movie.reviews.average(:score).to_s.slice(0..2) %>/5</strong></p>
+        <h4><strong>User Average Review: <%= @movie.reviews.average(:score).to_s.slice(0..2) %>/5 </strong><span class="glyphicon glyphicon-star"></span></h4>
       <% else %>
-        <p>No User Review Scores Yet</p>
+        <h4>No User Review Scores Yet</h4>
       <% end %>
       <p><%= @movie.description %></p>
       <!-- if no reviews, encourage review -->
       <% if @movie.reviews.empty? %>
-        <p>Be the first to review this movie!</p>
+        <h4>Be the first to review this movie!</h4>
       <% else %>
         <div>
+          <h4><strong>User Reviews:</strong></h4>
           <% @movie.reviews.each do |review| %>
           <div>
-            <p><%= review.user.username %> rates this a: <strong><%= review.score %>/5</strong></p>
+            <p><%= review.user.username %> rates this a: <strong><%= review.score %>/5 </strong><span class="glyphicon glyphicon-star"></span></p>
             <p><%= review.comment %></p>   
           </div>
           <% end %>

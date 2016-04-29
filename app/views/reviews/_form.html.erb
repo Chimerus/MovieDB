@@ -12,9 +12,18 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :score %><br>
-    <%= f.text_field :score  %>
-  </div>  
+        <%= f.label :score %><br>
+          <%= f.radio_button :score, 1 %>
+          <span class="glyphicon glyphicon-star"></span>
+          <%= f.radio_button :score, 2 %>
+          <span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span>
+          <%= f.radio_button :score, 3 %>
+          <span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span>
+          <%= f.radio_button :score, 4 %>
+          <span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span>
+          <%= f.radio_button :score, 5 %>
+          <span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span>
+      </div> 
   <div class="field">
     <%= f.label :comment %><br>
     <%= f.text_field :comment  %>

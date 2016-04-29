@@ -27,7 +27,7 @@ class ReviewsController < ApplicationController
   def create
     # check if THIS user reviewed THIS movie
     if Review.find_by(user_id: review_params[:user_id], movie_id: review_params[:movie_id])
-      flash[:error] = "You have already reviewed this movie!"
+      flash[:error] = "You already reviewed that!"
       redirect_to '/'
     else
       @review = Review.new(review_params)
@@ -72,7 +72,7 @@ class ReviewsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_review
-      @review = Review.find(params[:movie_id])
+      @review = Review.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

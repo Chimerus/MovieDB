@@ -1,5 +1,12 @@
 <p id="notice"><%= notice %></p>
-<p><%= @review.score %></p>
+<h4><%= @review.user.username %></h4>
+<h5>Review for: <%= @review.movie.title %></h5>
+<p><strong><%= @review.score %>/5 </strong><span class="glyphicon glyphicon-star"></span></p>
 <p><%= @review.comment %></p>
-<%= link_to 'Edit', edit_review_path(@review) %> |
+<% if current_user %>
+<!-- only the user who this is and the admins can edit the user -->
+  <% if @review.user_id == current_user.id || current_user.is_admin %>
+  <%= link_to 'Edit', edit_review_path(@review) %> |
+  <% end %>
+<% end %>  
 <%= link_to 'Back', reviews_path %>
