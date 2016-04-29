@@ -6,7 +6,7 @@
       <!-- only show average if there are user review scores -->
       <% if @movie.reviews.average(:score) %>
         <!-- average review, cut off at one decimal -->
-        <p>User Average Review: <%= @movie.reviews.average(:score).to_s.slice(0..2) %>/5</p>
+        <p><strong>User Average Review: <%= @movie.reviews.average(:score).to_s.slice(0..2) %>/5</strong></p>
       <% else %>
         <p>No User Review Scores Yet</p>
       <% end %>

@@ -8,7 +8,7 @@ class MoviesController < ApplicationController
   # using @ page, so can recycle the index page for both index and search results
   def index
     @movies = Movie.all
-    @page = "Welcome to YetAnotherMovieReviewSite!"
+    @page = "Welcome to Yet Another Movie Review Site!"
   end
 
   def search
