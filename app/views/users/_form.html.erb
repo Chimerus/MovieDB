@@ -23,10 +23,10 @@
     <%= f.text_field :password, placeholder: 'Required'  %>
   </div> 
   <div class="field">
-    <%= f.label :picture %><br>
-    <%= f.text_field :picture %>
+    <%= f.label :picture %> (Leave blank if Gravatar)<br>
+    <%= f.text_field :picture, placeholder: 'Picture URL' %>
   </div> 
-  <div class="actions">
+  <div class="actions black">
     <%= f.submit %>
   </div>
 <% end %>

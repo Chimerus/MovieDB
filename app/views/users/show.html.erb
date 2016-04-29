@@ -1,16 +1,22 @@
 <p id="notice"><%= notice %></p>
 
 <h2><%= @user.username %></h2>
-<img class="profile_pic" src="<%= @user.picture %>" alt="Picture of <%= @user.username %>"/><br>
-
+<% if @user.is_admin %>
+  <h3 class="admin">Administrator</h3>
+<% end %>
+<% if @user.picture.empty? %>
+  <img src="<%= @user.gravatar_url(:size => 200) %>" alt="gravatar of <%= @user.username %>" class="backy"/><br>
+<% else %>
+  <img class="profile_pic" src="<%= @user.picture %>" alt="Picture of <%= @user.username %>"/><br>
+<% end %>
+<h4>Member since: <%= @user.created_at.to_s.slice(0..9) %></h4>
 <% if current_user %>
 <!-- only the user who this is and the admins can edit the user -->
   <% if @user.id == current_user.id || current_user.is_admin %>
   <%= link_to 'Edit', edit_user_path(@user) %> profile
   <% end %>
 <% end %>
-<%= link_to 'Back', users_path %>
-
+<br>
 <% if @user.reviews %>
   <% @user.reviews.each do |review| %>
     <h4>Review for: <%= review.movie.title %></h4>
@@ -25,3 +31,6 @@
   <br>
   <% end %>
 <% end %>
+
+<br>
+<h4><span class="glyphicon glyphicon-chevron-left"></span><%= link_to 'Back', users_path %></h4>

@@ -1,7 +1,10 @@
 ## README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Rails 5 + Bootstrap
+login/logout/admin tools
+Search supports partial + case insensitive
+Gravatar support
+
 
 Things you may want to cover:
 

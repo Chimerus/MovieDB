@@ -37,9 +37,10 @@
       <div class="field" hidden>
         <%= f.text_field :movie_id, value: @movie.id %>
       </div>
-      <div class="actions">
+      <div class="actions black">
         <%= f.submit %>
       </div>
     <% end %>
   </div>
-</div>
+</div><br>
+<h4><span class="glyphicon glyphicon-chevron-left"></span><%= link_to 'Back', reviews_path %></h4>
