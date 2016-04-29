@@ -38,11 +38,12 @@
             <div class="head_links right">
               <!-- Sign in or Sign up, if already logged in, welcomes user -->
               <% if current_user %>
+                <!-- admin tools -->
+                <% if current_user.is_admin %>
+                  <h4>Administrator: <%= link_to 'New Movie', new_movie_path %> |<a href="/users" title="users_list"> Users </a>|<a href="/reviews" title="reviews_list"> Reviews </a>|<a id="logout" href="/logout"> Logout</a></h4>
+                <% else %>
                 <h4 class ="inline">Hi <%= current_user.username %> it's showtime! </h4><a id="logout" href="/logout"> Logout</a> 
-                <!-- admin add new movie link -->
-                  <% if current_user.is_admin %>
-                    <h4>Administrator: <%= link_to 'New Movie', new_movie_path %>|<a href="/users" title="users_list"> Users </a>|<a href="Reviews" title="reviews_list"> Reviews </a></h4>
-                  <% end %>
+                <% end %>
               <% else %>
                 <%= "Sign in to post reviews!"%>
                 <a id="new" href="/users/new">Sign Up Free!</a> |

@@ -9,7 +9,7 @@
 # to add more movies
 # {title:"", picture:"", description:"", friendly_url:""},
 Movie.create([
-  {title:"Zootopia", picture:"https://upload.wikimedia.org/wikipedia/en/d/d6/Zootopia_Soundtrack.jpg", description:"In a city of anthropomorphic animals, a rookie bunny cop and a cynical con artist fox must work together to uncover a conspiracy.", friendly_url: "zootopia"},
+  {title:"Zootopia", picture:"http://www.moviemagik.in/files/posters/3558/zootopia.jpg", description:"In a city of anthropomorphic animals, a rookie bunny cop and a cynical con artist fox must work together to uncover a conspiracy.", friendly_url: "zootopia"},
   {title:"Iron Man", picture:"http://cdn.collider.com/wp-content/uploads/iron-man-poster.jpg", description:"After being held captive in an Afghan cave, a billionaire engineer creates a unique weaponized suit of armor to fight evil.", friendly_url:"iron_man"},
   {title:"Mad Max: Fury Road", picture:"http://cdn1-www.superherohype.com/assets/uploads/gallery/mad-max-fury-road_1/mad-max-fury-road-poster2.jpg", description:"A woman rebels against a tyrannical ruler in postapocalyptic Australia in search for her home-land with the help of a group of female prisoners, a psychotic worshipper, and a drifter named Max.", friendly_url:"mad_max_fury_road"},
   {title:"Indiana Jones and the Last Crusade", picture:"https://upload.wikimedia.org/wikipedia/en/f/fc/Indiana_Jones_and_the_Last_Crusade_A.jpg", description:"When Dr. Henry Jones Sr. suddenly goes missing while pursuing the Holy Grail, eminent archaeologist Indiana Jones must follow in his father's footsteps and stop the Nazis.", friendly_url:"indiana_jones_and_the_last_crusade"},

@@ -1,12 +1,27 @@
 <p id="notice"><%= notice %></p>
 
 <h2><%= @user.username %></h2>
-<img src="<%= @user.picture %>" alt="Picture of <%= @user.username %>"/>
-<br>
+<img class="profile_pic" src="<%= @user.picture %>" alt="Picture of <%= @user.username %>"/><br>
+
 <% if current_user %>
 <!-- only the user who this is and the admins can edit the user -->
-  <% if @user.user_id == current_user.id || current_user.is_admin %>
-  <%= link_to 'Edit', edit_user_path(@user) %>
+  <% if @user.id == current_user.id || current_user.is_admin %>
+  <%= link_to 'Edit', edit_user_path(@user) %> profile
   <% end %>
 <% end %>
 <%= link_to 'Back', users_path %>
+
+<% if @user.reviews %>
+  <% @user.reviews.each do |review| %>
+    <h4>Review for: <%= review.movie.title %></h4>
+    <p><strong><%= review.score %>/5 </strong><span class="glyphicon glyphicon-star"></span></p>
+    <p><%= review.comment %></p>
+    <% if current_user %>
+      <!-- only the user who this is and the admins can edit the user -->
+      <% if review.user_id == current_user.id || current_user.is_admin %>
+        <%= link_to 'Edit', edit_review_path(review) %>
+      <% end %>
+    <% end %>  
+  <br>
+  <% end %>
+<% end %>
