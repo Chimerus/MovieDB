@@ -4,11 +4,11 @@
     <%= form_for(@review) do |f| %>
       <% if @review.errors.any? %>
         <div id="error_explanation">
-          <h2><%= pluralize(review.errors.count, "error") %> prohibited this review from being saved:</h2>
+          <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
 
           <ul>
           <% @review.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
+            <li class="black"><%= message %></li>
           <% end %>
           </ul>
         </div>
@@ -43,4 +43,4 @@
     <% end %>
   </div>
 </div><br>
-<h4><span class="glyphicon glyphicon-chevron-left"></span><%= link_to 'Back', reviews_path %></h4>
+<h4><span class="glyphicon glyphicon-chevron-left"></span><a href="/movies/<%= @movie.id %>" title="link back to movie">Back</a></h4>

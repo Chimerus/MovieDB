@@ -5,13 +5,14 @@
 
       <ul>
       <% review.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+        <li class="black"><%= message %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
 
   <div class="field">
+        <!-- Validate presence of score so they must enter a score to save -->
         <%= f.label :score %><br>
           <%= f.radio_button :score, 1 %>
           <span class="glyphicon glyphicon-star"></span>

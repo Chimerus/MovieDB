@@ -4,7 +4,12 @@ class ReviewsController < ApplicationController
   # GET /reviews
   # GET /reviews.json
   def index
-    @reviews = Review.all
+    if current_user && current_user.is_admin
+      @reviews = Review.all
+      render :index
+    else
+      redirect_to '/'
+    end
   end
 
   # GET /reviews/1

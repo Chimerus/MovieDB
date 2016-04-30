@@ -5,4 +5,10 @@ class YamrsMailer < ApplicationMailer
     @user=user
     mail(to: @user.email, subject: 'Welcome to YAMRs!')
   end
+
+  def welcome_gmail(user,password)
+    @user=user
+    @password=password
+    mail(to: @user.email, subject: 'Welcome to YAMRs!')
+  end
 end

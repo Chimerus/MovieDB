@@ -45,14 +45,17 @@ class ApplicationController < ActionController::Base
         cookies[:auth_token] = user.auth_token
       # make a new user
       else 
+        random_password = SecureRandom.hex(8)
         oauth_user = User.new(
           username: @auth2['email'],
           email: @auth2['email'],
-          password: @auth2['email'], 
+          password: random_password, 
           picture: @auth2['image']
           )
         # log them in
         if oauth_user.save
+          # welcome them and send them their access information
+          YamrsMailer.welcome_email(oauth_user,random_password).deliver
           user = User.where(email: oauth_user[:email]).first
           cookies[:auth_token] = user.auth_token
         end
