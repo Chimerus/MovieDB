@@ -7,7 +7,7 @@ class MoviesController < ApplicationController
 
   # using @ page, so can recycle the index page for both index and search results
   def index
-    @movies = Movie.all
+    @movies = Movie.all.paginate(:page => params[:page], :per_page => 6)
     @page = "Welcome to Yet Another Movie Review Site!"
   end
 

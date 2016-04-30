@@ -17,6 +17,8 @@
 @import "bootstrap-sprockets"
 @import "bootstrap"
 
+$primary-color: #E9C63A
+
 body 
   color: white
   background-image: url("https://d1hw6n3yxknhky.cloudfront.net/012336349_prevstill.jpeg")
@@ -32,14 +34,14 @@ body
   #review-btn
     color: black
   a:visited.admin
-    color: #E9C63A
+    color: $primary-color
   a.admin
-    color: #E9C63A
+    color: $primary-color
 p
   margin-top: 5px
 
 .admin
-  color: #E9C63A
+  color: $primary-color
   
 .backy
   background-color: white
@@ -49,11 +51,11 @@ p
 
 .btn-warning
   color: black
-  background-color: #E9C63A
+  background-color: $primary-color
 
 .btn-info 
   color: black
-  background-color: #E9C63A
+  background-color: $primary-color
   border-color: rgb(187,157,0)
 
 .head_links
@@ -91,7 +93,7 @@ p
 .logo
   font-family: 'Anton', sans-serif
   padding: 5px
-  background-color: #E9C63A
+  background-color: $primary-color
   background: radial-gradient(#F9E89A, #E3B71D)
   margin: 10px 0
   border-radius: 5px
@@ -130,6 +132,9 @@ p
   top: 85px
   background-color: rgba(0,0,0,0.65)
 
+.shift-paginate
+  margin-left: 10%
+
 .right
   float: right
 
@@ -147,7 +152,7 @@ p
   width: 90%
 
 .glyphicon-star
-  color: #E9C63A
+  color: $primary-color
 
 .error
   margin-left: 1em
@@ -173,6 +178,57 @@ p
   .error
     margin-left: 2em
     top: 165px
+
+.pagination
+  cursor: default
+  a, span, em
+    padding: 0.2em 0.5em
+    display: block
+    float: left
+    margin-right: 1px
+    border-radius: 5px
+  .disabled
+    color: #999999
+    border: 1px solid #dddddd
+    border-radius: 5px
+  .current
+    font-style: normal
+    font-weight: bold
+    background: $primary-color
+    color: black
+    border: 1px solid #2e6ab1
+    border-radius: 5px
+  a
+    text-decoration: none
+    color: #105cb6
+    border: 1px solid #9aafe5
+    &:hover, &:focus
+      color: white
+      border-color: white
+      border-radius: 5px
+  .page_info
+    background: #2e6ab1
+    color: white
+    padding: 0.4em 0.6em
+    width: 22em
+    margin-bottom: 0.3em
+    text-align: center
+    b
+      color: #000033
+      background: #2e6ab1 + 60
+      padding: 0.1em 0.25em
+  /* self-clearing method:
+  &:after
+    content: "."
+    display: block
+    height: 0
+    clear: both
+    visibility: hidden
+  * html &
+    height: 1%
+  *:first-child+html &
+    overflow: hidden
+
 
 @media screen and (max-width: 720px) 
   body  

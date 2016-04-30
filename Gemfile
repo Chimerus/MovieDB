@@ -32,9 +32,11 @@ gem 'bootstrap_form'
 gem 'autoprefixer-rails'
 # gravatar support
 gem 'gravtastic'
-
+# oauth - GOOGLE
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
+# paginate!
+gem 'will_paginate'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
