@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   # if they refresh the search page, sends back to home
   get '/movie/search' => 'movies#index'
   post '/movie/search' => 'movies#search'
+
+  get "/auth/:provider/callback" => 'application#create'
   # Serve websocket cable requests in-process
   # mount ActionCable.server => '/cable'
 end

@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'json'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '>= 5.0.0.beta3', '< 5.1'
 # Use postgresql as the database for Active Record
@@ -29,7 +30,11 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'bootstrap_form'
 gem 'autoprefixer-rails'
+# gravatar support
 gem 'gravtastic'
+
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

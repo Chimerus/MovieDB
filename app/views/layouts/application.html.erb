@@ -45,8 +45,8 @@
                 <h4 class ="inline">Hi <a href="/users/<%= current_user.id %>" title="link to user profile"><%= current_user.username %></a> it's showtime! </h4><a id="logout" href="/logout"> Logout</a> 
                 <% end %>
               <% else %>
-                <%= "Sign in to post reviews!"%>
                 <a id="new" href="/users/new">Sign Up Free!</a> |
+                <%= link_to "Sign in with Google!", '/auth/google_oauth2' %> |
                 <a href="#" class="nav-link" data-toggle="modal" data-target="#signIn" >Sign In</a>
               <% end %>
             </div>
