@@ -2,5 +2,5 @@
 
 <%= render 'form', user: @user %>
 
-<%= link_to 'Show', @user %><br><br>
-<h4><span class="glyphicon glyphicon-chevron-left"></span><%= link_to 'Back', users_path %></h4>
+<!-- removed show link, changed the lower link to go back to user -->
+<h4><span class="glyphicon glyphicon-chevron-left"></span><a href="/users/<%= @user.id %>" title="Link back to User">Back to User</a></h4>

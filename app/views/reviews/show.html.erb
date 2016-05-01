@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 <h4><a href="/users/<%= @review.user.id %>" title="link to user"><%= @review.user.username %></a></h4>
-<h5>Review for: <a href="/movies/<%= @review.movie.id %>" title="link to movie"><%= @review.movie.title %></a></h5>
+<h5>Review for: <%= @review.movie.title %></h5>
 <p><strong><%= @review.score %>/5 </strong><span class="glyphicon glyphicon-star"></span></p>
 <p><%= @review.comment %></p>
 <% if current_user %>
@@ -10,4 +10,5 @@
   <% end %>
 <% end %> 
 <br><br> 
-<h4><span class="glyphicon glyphicon-chevron-left"></span><%= link_to 'Back', reviews_path %></h4>
+<!-- changed this to link back to move, removed hyperlink from title -->
+<h4><span class="glyphicon glyphicon-chevron-left"></span><a href="/movies/<%= @review.movie.id %>" title="Back to Movie">Back to Movie</a></h4>

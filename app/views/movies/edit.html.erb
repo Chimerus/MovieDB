@@ -2,7 +2,5 @@
 
 <%= render 'form', movie: @movie %>
 
-<%= link_to 'Show', @movie %>
 <br><br>
-<h4><span class="glyphicon glyphicon-chevron-left"></span><%= link_to 'Back', movies_path %></h4>
-    <div class="center">
+<h4><span class="glyphicon glyphicon-chevron-left"></span><a href="/movies/<%= @movie.id %>" title="Back to Movie">Back to Movie</a></h4>

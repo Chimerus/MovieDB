@@ -24,8 +24,6 @@ class MoviesController < ApplicationController
   # GET /movies/1
   # GET /movies/1.json
   def show
-    # url=params[:friendly_url]
-    # @movie = Movie.find(params[:friendly_url])
   end
 
   # GET /movies/new
@@ -103,10 +101,10 @@ class MoviesController < ApplicationController
   end
 
   private
-    # TODO thinking might use this to dry code a bit.
-    def admincheck
+    # TODO was thinking might use this to dry code a bit, but its pretty basic as is.
+    def admincheck(code)
       if current_user.is_admin
-        @is_admin = true
+        code
       else
         redirect_to '/'
       end

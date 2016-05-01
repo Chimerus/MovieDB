@@ -32,8 +32,8 @@ class ReviewsController < ApplicationController
   def create
     # check if THIS user reviewed THIS movie
     if Review.find_by(user_id: review_params[:user_id], movie_id: review_params[:movie_id])
-      flash[:error] = "You already reviewed that!"
-      redirect_to '/'
+      flash[:error] = "You already reviewed this movie!"
+      redirect_to "/movies/#{review_params[:movie_id]}"
     else
       @review = Review.new(review_params)
       @movie = Movie.find(review_params[:movie_id])

@@ -2,5 +2,4 @@
 
 <%= render 'form', review: @review %>
 
-<%= link_to 'Show', @review %><br>
-<h4><span class="glyphicon glyphicon-chevron-left"></span><%= link_to 'Back', reviews_path %></h4>
+<h4><span class="glyphicon glyphicon-chevron-left"></span><a href="/movies/<%= @review.movie.id %>" title="Back to Movie">Back to Movie</a></h4>

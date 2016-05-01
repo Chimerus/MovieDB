@@ -2,16 +2,19 @@
 
 <h2><%= @user.username %></h2>
 <% if @user.is_admin %>
+<!-- Show Admin status! -->
   <h3 class="admin">Administrator</h3>
 <% end %>
+<!-- if they don't have their own image link, use Gravatar, which also provides a default image -->
 <% if @user.picture.empty? %>
   <img src="<%= @user.gravatar_url(:size => 200) %>" alt="gravatar of <%= @user.username %>" class="backy"/><br>
 <% else %>
   <img class="profile_pic" src="<%= @user.picture %>" alt="Picture of <%= @user.username %>"/><br>
 <% end %>
+<!-- Using that timestamp!  -->
 <h4>Member since: <%= @user.created_at.to_s.slice(0..9) %></h4>
 <% if current_user %>
-<!-- only the user who this is and the admins can edit the user -->
+<!-- only the user and the admins can edit the user profile-->
   <% if @user.id == current_user.id || current_user.is_admin %>
   <%= link_to 'Edit', edit_user_path(@user) %> profile
   <% end %>
@@ -19,11 +22,12 @@
 <br>
 <% if @user.reviews %>
   <% @user.reviews.each do |review| %>
-    <h4>Review for: <%= review.movie.title %></h4>
+  <!-- Each reviews links to the movie, for UX -->
+    <h4>Review for: <a href="/movies/review.movie.id" title="Link to movie"><%= review.movie.title %></a></h4>
     <p><strong><%= review.score %>/5 </strong><span class="glyphicon glyphicon-star"></span></p>
     <p><%= review.comment %></p>
     <% if current_user %>
-      <!-- only the user who this is and the admins can edit the user -->
+      <!-- only the user whose profile this is and the admins can edit the reviews-->
       <% if review.user_id == current_user.id || current_user.is_admin %>
         <%= link_to 'Edit', edit_review_path(review) %>
       <% end %>
