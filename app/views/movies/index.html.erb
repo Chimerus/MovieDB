@@ -11,9 +11,10 @@
   <div class="col-sm-10 col-sm-offset-1">    
           <% @movies.each do |movie| %>
             <div class="col-sm-4">
+            <!-- The Friendly_urls only from here, don't override all original code -->
             <!-- made both the title and the picture link to movie show, for user experience -->
-              <h2 class="movie_title"><a href="/movies/<%= movie.id %>" title="link to <%= movie.title %>"><strong><%= movie.title %></strong></a></h2>
-              <a href="/movies/<%= movie.id %>" title="link to <%= movie.title %>"><img src="<%= movie.picture %>" alt="Picture of <%= movie.title %>" class="movie_img_format"></a>
+              <h2 class="movie_title"><a href="/movie/<%= movie.friendly_url %>" title="link to <%= movie.title %>"><strong><%= movie.title %></strong></a></h2>
+              <a href="/movie/<%= movie.friendly_url %>" title="link to <%= movie.title %>"><img src="<%= movie.picture %>" alt="Picture of <%= movie.title %>" class="movie_img_format"></a>
               <!-- only show average if there are user review scores -->
               <% if movie.reviews.average(:score) %>
                 <!-- average of reviews, cut off at one decimal -->

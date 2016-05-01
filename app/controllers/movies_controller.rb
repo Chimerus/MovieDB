@@ -7,6 +7,7 @@ class MoviesController < ApplicationController
 
   # using @ page, so can recycle the index page for both index and search results
   def index
+    # pagination using gem!
     @movies = Movie.all.paginate(:page => params[:page], :per_page => 6)
     @page = "Welcome to Yet Another Movie Review Site!"
   end
@@ -18,12 +19,23 @@ class MoviesController < ApplicationController
     if @movies.empty?
       @sorry = "No results found"
     end
+    # Explicitly tell it to render this template, recycle the index view!
     render :index
   end
 
   # GET /movies/1
   # GET /movies/1.json
+  # Keep this, don't break default Rails (set_movie, paths)
   def show
+  end
+
+  # GET /movie/friendly_url <- note its movie, not movies!
+  # ALT show, these "friendy urls" only from the home index page
+  # Thought about paginating the reviews, but decided to keep one db query instead
+  def show_friendly
+    @movie = Movie.find_by(friendly_url: params[:friendly_url])
+    # Explicitly tell it to render this template, no need to make a different show view
+    render :show
   end
 
   # GET /movies/new
