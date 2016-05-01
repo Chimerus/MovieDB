@@ -24,8 +24,12 @@ class MoviesController < ApplicationController
   # GET /movies/1
   # GET /movies/1.json
   def show
-    # url=params[:friendly_url]
-    # @movie = Movie.find(params[:friendly_url])
+  end
+
+  # These "friendy urls" only from the home index page
+  def show_friendly
+    @movie = Movie.find_by(friendly_url: params[:friendly_url])
+    render :show
   end
 
   # GET /movies/new

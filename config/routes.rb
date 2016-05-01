@@ -16,7 +16,12 @@ Rails.application.routes.draw do
   get '/movie/search' => 'movies#index'
   post '/movie/search' => 'movies#search'
 
+  # callback for the Gmail Oauth
   get "/auth/:provider/callback" => 'application#create'
+
+  # friendly url implements, but don't want to eliminate the original id resources
+  get "/movie/:friendly_url" => 'movies#show_friendly'
+
   # Serve websocket cable requests in-process
   # mount ActionCable.server => '/cable'
 end

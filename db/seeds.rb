@@ -17,7 +17,7 @@ Movie.create([
   {title:"The Shawshank Redemption", picture:"https://loftcinema.com/files/2014/11/the-shawshank-redemption-movie-poster-1994-1020260139.jpg", description:"Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.", friendly_url:"the_shawshank_redemption"},
   {title:"The Godfather", picture:"https://s-media-cache-ak0.pinimg.com/236x/7f/bf/39/7fbf396b1234209ed0c887b8b932476f.jpg", description:"Michael, the young and idealistic son of Vito Corleone, the head of the most powerful Mafia clan in New York, returns home as a war hero and is determined to live his own life. But tragic circumstances make him face the legacy of his family.", friendly_url:"the_godfather"},
   {title:"Batman: The Dark Knight", picture:"https://paulmmartinblog.files.wordpress.com/2011/07/the_dark_knight_poster.jpg", description:"When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, the caped crusader must come to terms with one of the greatest psychological tests of his ability to fight injustice.", friendly_url:"batman_the_dark_knight"},
-  {title:"Schindler's List", picture:"http://ia.media-imdb.com/images/M/MV5BMzMwMTM4MDU2N15BMl5BanBnXkFtZTgwMzQ0MjMxMDE@._V1_UY1200_CR73,0,630,1200_AL_.jpg", description:"In Poland during World War II, Oskar Schindler gradually becomes concerned for his Jewish workforce after witnessing their persecution by the Nazis.", friendly_url:"schindlers_list"},
+  {title:"Schindler's List", picture:"https://terrymalloyspigeoncoop.files.wordpress.com/2014/03/a80733tlh20.jpg", description:"In Poland during World War II, Oskar Schindler gradually becomes concerned for his Jewish workforce after witnessing their persecution by the Nazis.", friendly_url:"schindlers_list"}
   ])  
 
 # to add more users
@@ -46,5 +46,8 @@ Review.create([
   {score: 5, comment: "IMDB can't be wrong!", user_id: 1, movie_id: 6},
   {score: 5, comment: "Inspiring!", user_id: 2 , movie_id: 6},
   {score: 5, comment: "Made me want to go to prison!", user_id: 4, movie_id: 6},
-  {score: 5, comment: "This is an automated test", user_id: 5, movie_id: 6}
+  {score: 5, comment: "This is an automated test", user_id: 5, movie_id: 6},
+  {score: 5, comment: "Awesome!", user_id: 1, movie_id: 7},
+  {score: 5, comment: "Awesome!", user_id: 1, movie_id: 8},
+  {score: 5, comment: "Awesome!", user_id: 3, movie_id: 9},
   ])
