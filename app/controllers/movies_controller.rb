@@ -13,7 +13,7 @@ class MoviesController < ApplicationController
 
   def search
     # regex and using params for safety
-    @movies = Movie.where('title~*?', params[:search])
+    @movies = Movie.where('title~*?', params[:search]).paginate(:page => params[:page], :per_page => 6)
     @page = "Search Results"
     if @movies.empty?
       @sorry = "No results found"
