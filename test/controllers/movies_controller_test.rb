@@ -3,7 +3,7 @@ require 'test_helper'
 class MoviesControllerTest < ActionDispatch::IntegrationTest
   setup do
     @movie = movies(:one)
-    @user = user(:one)
+    @user = users(:one)
   end
 
   test "should get index" do

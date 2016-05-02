@@ -5,12 +5,12 @@
 # below each fixture, per the syntax in the comments below
 #
 one: 
-username: "Admin"
-password: "password" 
-email: "test2@test.com"
-picture: "http://www.returnofkings.com/wp-content/uploads/2014/03/ban.jpg"
-is_admin: true
+  username: Admin
+  password_digest: password
+  email: test2@test.com
+  picture: http://www.returnofkings.com/wp-content/uploads/2014/03/ban.jpg
+  is_admin: true
 # column: value
 #
-two: {}
+# two: {}
 # column: value

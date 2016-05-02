@@ -5,11 +5,11 @@
 # below each fixture, per the syntax in the comments below
 #
 one: 
-score: 5
-comment: "Awesome!" 
-user_id: 1 
-movie_id: 1
+  score: 5
+  comment: Awesome!
+  user_id: 1 
+  movie_id: 1
 # column: value
 #
-two: {}
+# two: {}
 # column: value
