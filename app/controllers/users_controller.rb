@@ -4,7 +4,13 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    # only admins see the whole user list
+    if current_user && current_user.is_admin
+      @users = User.all
+      render :index
+    else
+      redirect_to "/"
+    end
   end
 
   # GET /users/1
@@ -18,16 +24,24 @@ class UsersController < ApplicationController
   end
 
   # GET /users/1/edit
+  # Only let the user/admin edit their page if someone manually goes here
   def edit
     id = params[:id]
     @user = User.find(id)
+    if current_user
+      # have to do this, or wil get nil:nil class
+      if current_user.is_admin || current_user.id == @user.id
+        render :edit
+      end
+    else
+      redirect_to "/"
+    end
   end
 
   # POST /users
   # POST /users.json
   def create
     @user = User.new(user_params)
-
     respond_to do |format|
       if @user.save
         # send welcome email
@@ -60,6 +74,8 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
+    # Send goodbye email
+    YamrsMailer.goodbye_email(@user).deliver
     @user.destroy
     respond_to do |format|
       format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }

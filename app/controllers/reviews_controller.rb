@@ -19,12 +19,21 @@ class ReviewsController < ApplicationController
 
   # GET /reviews/new
   def new
-    @review = Review.new
-    @movie = Movie.find(params[:id])
+    # Locking the creation to logged in administrator
+    if current_user && current_user.is_admin
+      @review = Review.new
+      @movie = Movie.find(params[:id])
+      render :new
+    else
+      redirect_to '/'
+    end
   end
 
   # GET /reviews/1/edit
   def edit
+    if current_user
+      # have to do this, or wil get nil:nil class
+    end
   end
 
   # POST /reviews
@@ -67,10 +76,15 @@ class ReviewsController < ApplicationController
   # DELETE /reviews/1
   # DELETE /reviews/1.json
   def destroy
-    @review.destroy
-    respond_to do |format|
-      format.html { redirect_to reviews_url, notice: 'Review was successfully destroyed.' }
-      format.json { head :no_content }
+    @review = Review.find(params[:id])
+    if current_user && (current_user.is_admin || current_user.id == @review.user.id)
+      @review.destroy
+      respond_to do |format|
+        format.html { redirect_to reviews_url, notice: 'Review was successfully destroyed.' }
+        format.json { head :no_content }
+      end
+    else
+      redirect_to "/"
     end
   end
 

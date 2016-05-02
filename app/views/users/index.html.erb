@@ -11,9 +11,8 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%= user.username %></td>
+        <td class="<% if user.is_admin %><%= "admin" %><% end %>"><%= user.username %></td>
         <td><%= link_to 'Show', user %></td>
-        <!-- regular users can see this page, if they navigate here -->
         <% if current_user && current_user.is_admin %>
         <td> | <%= link_to 'Edit', edit_user_path(user) %></td>
         <td> | <%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>

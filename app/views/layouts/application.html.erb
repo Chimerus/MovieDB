@@ -14,6 +14,7 @@
     <div class="container header">
     <div class="row">
       <div class="col-md-2">
+      <!-- Kept it as an element instead of an image file so it can resize -->
         <h1 class="logo"><a href="/" title="logo home">YAMRs</a></h1>
       </div>
       <div class="col-md-10">
@@ -24,6 +25,7 @@
               <form role="form" action="/movie/search" id="new_search" method="post" class="form-inline">
                 <div class="form-group">
                   <span class="input-group-btn ">
+                  <!-- gotta have that authenticity token! -->
                   <%= tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token) %>
                   <input type="text" class="search-query form-control" placeholder="Search by Title" name="search"/>
                   <button class="btn btn-danger" type="submit button">

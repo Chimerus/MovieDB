@@ -45,7 +45,7 @@ class ApplicationController < ActionController::Base
         cookies[:auth_token] = user.auth_token
       # make a new user
       else 
-        random_password = SecureRandom.hex(8)
+        random_password = SecureRandom.hex(5)
         oauth_user = User.new(
           username: @auth2['email'],
           email: @auth2['email'],
@@ -57,6 +57,7 @@ class ApplicationController < ActionController::Base
           # welcome them and send them their access information
           YamrsMailer.welcome_gmail(oauth_user,random_password).deliver
           user = User.where(email: oauth_user[:email]).first
+          # this is their "logged in"
           cookies[:auth_token] = user.auth_token
         end
       end

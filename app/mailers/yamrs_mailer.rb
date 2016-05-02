@@ -12,4 +12,9 @@ class YamrsMailer < ApplicationMailer
     @password=password
     mail(to: @user.email, subject: 'Welcome to YAMRs!')
   end
+
+  def goodbye_email(user)
+    @user=user
+    mail(to: @user.email, subject: 'Sad to see you leave YAMRs!')
+  end
 end

@@ -13,7 +13,7 @@
     <% @reviews.each do |review| %>
       <tr>
         <td>Title: <%= review.movie.title %></td>
-        <td>User: <%= review.user.username %></td>
+        <td class="<% if review.user.is_admin %><%= "admin" %><% end %>">User: <%= review.user.username %></td>
         <td>Score: <%= review.score %></span></td>
         <td> <%= review.comment %></td>
         <td><%= link_to 'Show', review %></td>

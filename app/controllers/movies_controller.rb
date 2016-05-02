@@ -41,7 +41,7 @@ class MoviesController < ApplicationController
   # GET /movies/new
   def new
     # locks adding movies to admin
-    if current_user.is_admin
+    if current_user && current_user.is_admin
       @movie = Movie.new
     else
       redirect_to '/'
@@ -50,8 +50,8 @@ class MoviesController < ApplicationController
 
   # GET /movies/1/edit
   def edit
-    # locks editing movies to admin
-    if current_user.is_admin
+    # locks editing movies to logged in administrator only
+    if current_user && current_user.is_admin
       @movie = Movie.find(params[:id])
     else
       redirect_to '/'
@@ -61,8 +61,8 @@ class MoviesController < ApplicationController
   # POST /movies
   # POST /movies.json
   def create
-    # locks adding movies to admin
-    if current_user.is_admin
+    # locks adding movies to logged in admin, have to have current_user first or nil:nil class
+    if current_user && current_user.is_admin
       @movie = Movie.new(movie_params)
       respond_to do |format|
         if @movie.save
@@ -82,7 +82,7 @@ class MoviesController < ApplicationController
   # PATCH/PUT /movies/1.json
   def update
     # locks editing movies to admin
-    if current_user.is_admin
+    if current_user && current_user.is_admin
       respond_to do |format|
         if @movie.update(movie_params)
           format.html { redirect_to @movie, notice: 'Movie was successfully updated.' }
@@ -101,7 +101,7 @@ class MoviesController < ApplicationController
   # DELETE /movies/1.json
   def destroy
     # locks removing movies to admin
-    if current_user.is_admin
+    if current_user && current_user.is_admin
       @movie.destroy
       respond_to do |format|
         format.html { redirect_to movies_url, notice: 'Movie was successfully destroyed.' }
@@ -115,7 +115,7 @@ class MoviesController < ApplicationController
   private
     # TODO was thinking might use this to dry code a bit, but its pretty basic as is.
     def admincheck(code)
-      if current_user.is_admin
+      if current_user && current_user.is_admin
         code
       else
         redirect_to '/'
