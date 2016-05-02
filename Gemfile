@@ -47,6 +47,8 @@ group :development, :test do
   gem 'byebug'
   # for debugging
   gem 'pry'
+  # rspec
+  gem 'rspec'
 end
 
 group :development do

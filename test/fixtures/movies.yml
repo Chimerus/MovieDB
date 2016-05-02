@@ -4,7 +4,10 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
+one:
+title: "Testopia" 
+picture: "http://www.moviemagik.in/files/posters/3558/zootopia.jpg"
+description: "In a city of anthropomorphic animals, a rookie con artist fox must cover a conspiracy."
 # column: value
 #
 two: {}

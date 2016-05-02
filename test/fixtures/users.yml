@@ -4,7 +4,12 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
+one: 
+username: "Admin"
+password: "password" 
+email: "test2@test.com"
+picture: "http://www.returnofkings.com/wp-content/uploads/2014/03/ban.jpg"
+is_admin: true
 # column: value
 #
 two: {}
