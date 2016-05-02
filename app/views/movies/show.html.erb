@@ -27,6 +27,7 @@
           <% @movie.reviews.each do |review| %>
           <div class="row spacer">
             <div class="col-md-2 pic_padding">
+              <a href="/users/<%= review.user.id %>" title="link to user profile" class="<% if review.user.is_admin %><%= "admin" %><% end %>">
               <!-- if they don't have their own image link, use Gravatar, which also provides a default image -->
               <% if review.user.picture.empty? %>
               <!-- Makes white background for transparent gravatars-->
@@ -34,6 +35,7 @@
               <% else %>
                 <img class="profile_pic" src="<%= review.user.picture %>" alt="Picture of <%= review.user.username %>"/><br>
               <% end %>
+              </a>
             </div>
             <div class="col-md-10 review_padding">
               <!-- special color for admin users -->

@@ -82,7 +82,7 @@ class ReviewsController < ApplicationController
     if current_user && (current_user.is_admin || current_user.id == @review.user.id)
       @review.destroy
       respond_to do |format|
-        format.html { redirect_to reviews_url, notice: 'Review was successfully destroyed.' }
+        format.html { redirect_to '/', notice: 'Review was successfully destroyed.' }
         format.json { head :no_content }
       end
     else
