@@ -19,8 +19,8 @@ class ReviewsController < ApplicationController
 
   # GET /reviews/new
   def new
-    # Locking the creation to logged in administrator
-    if current_user && current_user.is_admin
+    # Have to be logged in to review!
+    if current_user 
       @review = Review.new
       @movie = Movie.find(params[:id])
       render :new
@@ -30,9 +30,11 @@ class ReviewsController < ApplicationController
   end
 
   # GET /reviews/1/edit
+  # Ensure only user who wrote it or admin can edit review
   def edit
-    if current_user
-      # have to do this, or wil get nil:nil class
+    if current_user && (current_user.is_admin || current_user.id == @review.user.id)
+    else
+      redirect_to '/'
     end
   end
 

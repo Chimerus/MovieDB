@@ -58,11 +58,23 @@ p
   background-color: $primary-color
   border-color: rgb(187,157,0)
 
+.center
+  text-align: center
+
+.close
+  font-size: 30px
+
 .head_links
   a
     color: #146DB2
   a:visited
     color: #146DB2
+
+.error
+  margin-left: 1em
+  top: 70px
+  position: fixed
+  z-index: 4
 
 .field input
   color: black
@@ -83,12 +95,21 @@ p
   width: 300px
 
 .profile_pic
-  height: 200px
-  width: 200px
+  height: 50px
+  width: 50px
+  border-radius: 3px
 
 .user_img
   height: 250px
   width: 200px
+  border-radius: 3px
+
+.pic_padding
+  padding-top: 5px
+  padding-left: 10px 
+
+.review_padding
+  padding-left: 0 
 
 .logo
   font-family: 'Anton', sans-serif
@@ -98,7 +119,6 @@ p
   margin: 10px 0
   border-radius: 5px
   border: 1px solid rgb(187,157,0)
-
   float: left
 
 .logo 
@@ -141,11 +161,6 @@ p
 textarea
   color: black
   
-.center
-  text-align: center
-
-.close
-  font-size: 30px
 
 .modal-content
   background: #4A4A4A
@@ -157,11 +172,10 @@ textarea
 .glyphicon-star
   color: $primary-color
 
-.error
-  margin-left: 1em
-  top: 70px
-  position: fixed
-  z-index: 4
+.spacer
+  margin-bottom: 10px
+  background-color: rgba(255,255,255,0.15)
+  border-radius: 3px
 
 @media screen and (max-width: 370px) 
   body  
@@ -181,6 +195,29 @@ textarea
   .error
     margin-left: 2em
     top: 165px
+  .spacer
+    margin: 5px auto
+    width: 98%
+
+@media screen and (max-width: 720px) 
+  body  
+    font-size: 15px
+  h2
+    font-size: 35px  
+  h1
+    font-size: 18px
+  p
+    font-size: 18px
+    line-height: 25px
+  .logo
+    font-size: 34px
+  .col-sm-4
+    text-align: center
+  .movie-title
+    text-align: center
+  .spacer
+    margin: 5px auto
+    width: 98%
 
 .pagination
   cursor: default
@@ -231,24 +268,3 @@ textarea
     height: 1%
   *:first-child+html &
     overflow: hidden
-
-
-@media screen and (max-width: 720px) 
-  body  
-    font-size: 12px
-  h2
-    font-size: 35px  
-  h1
-    font-size: 18px
-  p
-    font-size: 18px
-    line-height: 25px
-  .logo
-    font-size: 34px
-  .col-sm-4
-    text-align: center
-  .movie-title
-    text-align: center
-
-
-

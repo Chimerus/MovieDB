@@ -1,4 +1,1 @@
-// $(document).on("click", function(){
-//   console.log("yup");
-//   $('.review_form').show();
-// })
+// No scripts, but if I had them I would put them here!

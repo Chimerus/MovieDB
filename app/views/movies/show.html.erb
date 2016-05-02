@@ -25,10 +25,21 @@
         <div>
           <h4><strong>User Reviews:</strong></h4>
           <% @movie.reviews.each do |review| %>
-          <div>
+          <div class="row spacer">
+            <div class="col-md-2 pic_padding">
+              <!-- if they don't have their own image link, use Gravatar, which also provides a default image -->
+              <% if review.user.picture.empty? %>
+              <!-- Makes white background for transparent gravatars-->
+                <img src="<%= review.user.gravatar_url %>" alt="gravatar of <%= review.user.username %>" class="profile_pic backy"/><br>
+              <% else %>
+                <img class="profile_pic" src="<%= review.user.picture %>" alt="Picture of <%= review.user.username %>"/><br>
+              <% end %>
+            </div>
+            <div class="col-md-10 review_padding">
               <!-- special color for admin users -->
               <p><a href="/users/<%= review.user.id %>" title="link to user profile" class="<% if review.user.is_admin %><%= "admin" %><% end %>"><%= review.user.username %></a> rates this a: <strong><%= review.score %>/5 </strong><span class="glyphicon glyphicon-star"></span></p>
-            <p><%= review.comment %></p>   
+            <p><%= review.comment %></p>
+            </div>   
           </div>
           <% end %>
         </div>

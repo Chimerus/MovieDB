@@ -1,26 +1,21 @@
 ## README
 
-Rails 5 + Bootstrap
-login/logout/admin tools
-Search supports partial + case insensitive
-Gravatar support
-
-
-Things you may want to cover:
-
+#Built With
+Rails 5 + Bootstrap 
 * Ruby version - 2.3.0
 
-* System dependencies
+#Features
+login/logout as well as OAuth for Gmail
+Search supports partial + case insensitive
+Gravatar support
+"friendly url" support
+User cannot review same movie twice
+Movie average user score displayed
+Full CRUD for user/movie/review
+Sends welcome email to new users including password if OAuth, goodbye email to deleted users
+Pagination
+Mobile Responsiveness
 
-* Configuration
 
-* Database creation
-
-* Database initialization
 
 * How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-

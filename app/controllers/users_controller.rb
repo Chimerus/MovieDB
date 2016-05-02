@@ -40,6 +40,9 @@ class UsersController < ApplicationController
 
   # POST /users
   # POST /users.json
+  
+  # NOTE: No way in here to make a user an admin. Did not want admins to add or remove admin status from other users. 
+  # Might make a owns_site column in database to enable other people for admin status.
   def create
     @user = User.new(user_params)
     respond_to do |format|
